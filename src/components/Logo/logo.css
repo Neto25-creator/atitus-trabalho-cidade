@@ -1,13 +1,14 @@
 .logo {
-  background-color: #d9d9d9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border-radius: 95px;
-  display: inline-block;
   height: 190px;
   width: 322px;
   position: relative;
 }
 
-.logo .text-wrapper {
+/* .logo .text-wrapper {
   color: #000000;
   font-family: "Noto Sans-Black", Helvetica;
   font-size: 16px;
@@ -18,4 +19,4 @@
   position: absolute;
   text-align: center;
   top: 83px;
-}
+} */

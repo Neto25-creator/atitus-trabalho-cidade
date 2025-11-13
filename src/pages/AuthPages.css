@@ -21,7 +21,7 @@ body {
   background: #ffffff;
   border-radius: 20px;
   overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.27);
 }
 
 /* Lado esquerdo */
@@ -41,8 +41,15 @@ body {
   text-align: center;
 }
 
+.carousel-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .carousel h2 {
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   font-weight: 600;
   margin-bottom: 1rem;
 }
@@ -87,6 +94,7 @@ body {
   width: 100%;
   max-width: 350px;
   text-align: center;
+  font-size: 0.96rem;
 }
 
 
@@ -172,7 +180,17 @@ body {
   }
 
   .carousel h2 {
-    font-size: 1.4rem;
+    font-size: 1.2rem;
+  }
+
+  .carousel p {
+    font-size: 0.9rem;
+    max-width: 90%;
+  }
+
+  .dot {
+    width: 8.5px;
+    height: 8.5px;
   }
 
   .auth-right {
