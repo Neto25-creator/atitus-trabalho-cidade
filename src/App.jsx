@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-d
 import { Login } from "./pages/Login";
 import { Register } from "./pages/Register";
 import { Map } from "./pages/Map";
+import { Relatos } from "./pages/Relatos";
 import { PrivateRoute } from "./components/PrivateRoute";
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
           }
         />
         <Route path="*" element={<Navigate to="/login" />} />
+        <Route path="/relatos" element={<Relatos/>} />
       </Routes>
     </Router>
   );

@@ -1,4 +1,5 @@
 import "./menu.css"
+import { Link } from "react-router-dom";
 
 import { FaHome } from "react-icons/fa";
 import { MdMessage } from "react-icons/md";
@@ -11,13 +12,13 @@ export function Menu() {
         <div className="menu-container">
             <div className="menu">
                 <div className="menu-card">
-                    <FaHome size={35}/>
-                    <span>Home</span>
+                     <Link to={"/map"}><FaHome size={35}/></Link>
+                     <Link to={"/map"}><span>Home</span></Link>
                 </div>
 
                 <div className="menu-card">
-                    <MdMessage size={35}/>
-                    <span>Relatos</span>
+                    <Link to={"/relatos"}><MdMessage size={35}/></Link>
+                    <Link to={"/relatos"}><span>Relatos</span></Link>
                 </div>
 
                 <div className="menu-card">
