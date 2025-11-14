@@ -5,6 +5,8 @@ import { Register } from "./pages/Register";
 import { Map } from "./pages/Map";
 import { Relatos } from "./pages/Relatos";
 import { PrivateRoute } from "./components/PrivateRoute";
+import Notificacoes from "./pages/Notificacoes";
+import Cadastro from "./pages/CadastroProblema";
 
 function App() {
   return (
@@ -20,9 +22,10 @@ function App() {
         />
         <Route path="*" element={<Navigate to="/login" />} />
         <Route path="/relatos" element={<Relatos/>} />
+        <Route path="/notificacoes" element={<Notificacoes/>} />
+        <Route path="/cadastro-problema" element={<Cadastro/>} />
       </Routes>
     </Router>
   );
 }
-
 export default App;

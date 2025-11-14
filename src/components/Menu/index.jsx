@@ -22,12 +22,13 @@ export function Menu() {
                 </div>
 
                 <div className="menu-card">
-                    <FaCirclePlus size={50} color="#4a7be3"/>
+                    <Link to= {"/cadastro-problema"}><FaCirclePlus size={50} color="#4a7be3"/></Link>
+                    <Link to={"/cadastro-problema"}><span>Cadastrar</span></Link>
                 </div>
                 
                 <div className="menu-card">
-                    <IoMdNotifications size={35}/>
-                    <span>Notificações</span>
+                    <Link to={"/notificacoes"}><MdMessage size={35}/></Link>
+                    <Link to={"/notificacoes"}><span>Notificações</span></Link>
                 </div>
 
                 <div className="menu-card">

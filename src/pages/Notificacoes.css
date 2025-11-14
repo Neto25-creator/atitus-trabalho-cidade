@@ -1,0 +1,76 @@
+.relatos-container{
+    font-family: "Poppins", sans-serif;
+}
+
+.nav-card-1 {
+    margin-left: 2vh;
+    margin-top: 2vh;
+    display: flex;
+    align-items: center;
+    font-size: 14.5px;
+}
+
+.nav-card-1 span{
+    margin-left: 2vh;
+}
+
+.nav-card-2 {
+    margin-top: 3vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 8vh;
+    font-size: 13.5px;
+}
+
+.nav-card-2-section{
+    height: 50%;
+}
+
+.nav-card-2-section:hover{
+    color: #4a7be3;
+    border-bottom: 1px solid #4a7be3;
+}
+
+.nav-card-3{
+    font-size: 12px;
+    margin-left: 2vh;
+    margin-bottom: 4vh;
+    color: #949494;
+}
+
+.relatos-card{
+    margin-top: 2vh;
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+}
+
+.relatos-card-content{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.relatos-card-img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50% ;
+}
+
+.relatos-card-details{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    font-size: 4vh;
+}
+
+.relatos-card h4 {
+    font-weight: bold;
+}
+
+.relatos-card p {
+    color: #949494;
+}
