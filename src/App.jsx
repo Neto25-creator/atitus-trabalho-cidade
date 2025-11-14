@@ -23,7 +23,7 @@ function App() {
         />
         <Route path="*" element={<Navigate to="/login" />} />
         <Route path="/relatos" element={<Relatos/>} />
-        <Route path="/notificações" element={<Notificacoes/>} />
+        <Route path="/notificacoes" element={<Notificacoes/>} />
         <Route path="/cadastro-problema" element={<Cadastro/>} />
         <Route path="/perfil" element={<Profile/>} />
       </Routes>
