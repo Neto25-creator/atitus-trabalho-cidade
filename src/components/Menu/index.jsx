@@ -12,12 +12,12 @@ export function Menu() {
         <div className="menu-container">
             <div className="menu">
                 <div className="menu-card">
-                     <Link to={"/map"}><FaHome size={35}/></Link>
+                     <Link to={"/map"}><FaHome size={30}/></Link>
                      <Link to={"/map"}><span>Home</span></Link>
                 </div>
 
                 <div className="menu-card">
-                    <Link to={"/relatos"}><MdMessage size={35}/></Link>
+                    <Link to={"/relatos"}><MdMessage size={30}/></Link>
                     <Link to={"/relatos"}><span>Relatos</span></Link>
                 </div>
 
@@ -26,13 +26,13 @@ export function Menu() {
                 </div>
                 
                 <div className="menu-card">
-                    <IoMdNotifications size={35}/>
+                    <IoMdNotifications size={30}/>
                     <span>Notificações</span>
                 </div>
 
                 <div className="menu-card">
-                   <MdPeopleAlt size={35}/>
-                    <span>Perfil</span>
+                   <Link to={"/perfil"}><MdPeopleAlt size={30}/></Link>
+                    <Link to={"/perfil"}><span>Perfil</span></Link>
                 </div>
             </div>
         </div>
