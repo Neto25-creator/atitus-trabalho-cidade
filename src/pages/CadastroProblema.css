@@ -1,0 +1,117 @@
+/* Container geral */
+.cadastro-container {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    background: #f5f7fb;
+    padding: 40px 0;
+  }
+  
+  /* Card central para desktop */
+  .cadastro-card {
+    width: 600px;
+    background: #fff;
+    padding: 40px;
+    border-radius: 24px;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+  }
+  
+  /* Foto */
+  .foto-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+  }
+  
+  .foto-botao {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background: #6fa8ff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  /* Texto padrão */
+  .label {
+    font-size: 15px;
+    font-weight: 600;
+    margin-top: 18px;
+    margin-bottom: 6px;
+    color: #333;
+  }
+  
+  /* Inputs base */
+  .input,
+  .textarea {
+    width: 100%;
+    background: #eef3fa;
+    border: none;
+    border-radius: 14px;
+    padding: 16px;
+    font-size: 15px;
+    outline: none;
+  }
+  
+  .textarea {
+    resize: vertical;
+  }
+  
+  /* Categorias */
+  .categorias {
+    display: flex;
+    gap: 14px;
+    margin-top: 6px;
+  }
+  
+  .categoria,
+  .categoria-active {
+    background: #eef3fa;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 12px;
+    font-size: 15px;
+    cursor: pointer;
+    color: #333;
+  }
+  
+  .categoria-active {
+    background: #6fa8ff;
+    color: #fff;
+  }
+  
+  /* Inputs com ícone */
+  .input-icon {
+    width: 100%;
+    background: #eef3fa;
+    border-radius: 14px;
+    padding: 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .input-no-style {
+    width: 100%;
+    border: none;
+    background: transparent;
+    outline: none;
+    font-size: 15px;
+  }
+  
+  /* Botão principal */
+  .botao {
+    width: 100%;
+    margin-top: 30px;
+    background: #6fa8ff;
+    border: none;
+    color: white;
+    padding: 16px 0;
+    border-radius: 14px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+  }

@@ -3,15 +3,15 @@ import { IoIosArrowBack } from "react-icons/io";
 
 import { Menu } from "../components/Menu";
 
-import "./Relatos.css"
+import "./Notificacoes.css"
 
-export function Relatos(){
+export function Notificacoes(){
     return(
         <div className="relatos-container">
             <nav className="nav-card">
                 <div className="nav-card-1">
                     <Link to={"/map"}><div><IoIosArrowBack size={20}/></div></Link>
-                    <span>Relatos Cadastrados</span>
+                    <span>Notificações</span>
                 </div>
 
                 <div className="nav-card-2">
@@ -20,22 +20,18 @@ export function Relatos(){
                     </div>
 
                     <div className="nav-card-2-section">
-                        <span>Buraco</span>
+                        <span>Resolvidos</span>
                     </div>
 
                     <div className="nav-card-2-section">
-                        <span>Vazamento</span>
-                    </div>
-
-                    <div className="nav-card-2-section">
-                        <span>Iluminação</span>
+                        <span>Em avaliação</span>
                     </div>
                 </div>
             </nav>
 
             <div>
                 <div className="nav-card-3">
-                    <h3>Total 02 Relatos</h3>
+                    <h3>Total 05 Notificações</h3>
                 </div>
 
                 <div className="relatos">
@@ -45,7 +41,7 @@ export function Relatos(){
                         </div>
 
                         <div className="relatos-card-content">
-                            <h4>Vazamento de água ⚠️ </h4>
+                            <h4>Vazamento de água - Problema encaminhado o departamento de obras da sua prefeitura ✅ </h4>
                             <p>Rompimento na tubulação de abastecimento</p>
                         </div>
 
@@ -60,7 +56,7 @@ export function Relatos(){
                         </div>
 
                         <div className="relatos-card-content">
-                            <h4>Buraco ⚠️ </h4>
+                            <h4>Buraco - Problema encaminhado o departamento de obras da sua prefeitura ✅</h4>
                             <p>Presença de buraco de grande porte na via, dificultando tráfego...</p>
                         </div>
 
@@ -75,3 +71,5 @@ export function Relatos(){
         </div>
     )
 }
+
+export default Notificacoes;
