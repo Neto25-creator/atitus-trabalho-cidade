@@ -22,7 +22,7 @@ export function AuthCarousel() {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length);
-    }, 6000); // muda a cada 5 segundos
+    }, 6000);
     return () => clearInterval(interval);
   }, [slides.length]);
 

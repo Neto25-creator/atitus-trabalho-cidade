@@ -14,7 +14,7 @@ export default function CadastroProblema() {
 
   return (
     <div className="w-full min-h-screen flex justify-center bg-[#f5f7fb] py-10">
-      <div className="w-[1000px] bg-white p-10 rounded-2xl shadow-lg"> {/* deixado mais horizontal */}
+      <div className="w-[1680px] bg-white p-10 rounded-2xl shadow-lg"> {/* deixado mais horizontal */}
         {/* NAV */}
         <nav className="flex items-center gap-3 mb-8">
           <Link to={"/map"}>

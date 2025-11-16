@@ -12,27 +12,27 @@ export function Menu() {
         <div className="menu-container">
             <div className="menu">
                 <div className="menu-card">
-                     <Link to={"/map"}><FaHome size={30}/></Link>
+                     <Link to={"/map"}><FaHome size={25}/></Link>
                      <Link to={"/map"}><span>Home</span></Link>
                 </div>
 
                 <div className="menu-card">
-                    <Link to={"/relatos"}><MdMessage size={30}/></Link>
+                    <Link to={"/relatos"}><MdMessage size={25}/></Link>
                     <Link to={"/relatos"}><span>Relatos</span></Link>
                 </div>
 
                 <div className="menu-card">
-                    <Link to= {"/cadastro-problema"}><FaCirclePlus size={50} color="#4a7be3"/></Link>
+                    <Link to= {"/cadastro-problema"}><FaCirclePlus size={40} color="#4a7be3"/></Link>
                     <Link to={"/cadastro-problema"}><span>Cadastrar</span></Link>
                 </div>
                 
                 <div className="menu-card">
-                    <Link to={"/notificacoes"}><MdMessage size={35}/></Link>
+                    <Link to={"/notificacoes"}><IoMdNotifications size={25}/></Link>
                     <Link to={"/notificacoes"}><span>Notificações</span></Link>
                 </div>
 
                 <div className="menu-card">
-                   <Link to={"/perfil"}><MdPeopleAlt size={30}/></Link>
+                   <Link to={"/perfil"}><MdPeopleAlt size={25}/></Link>
                     <Link to={"/perfil"}><span>Perfil</span></Link>
                 </div>
             </div>

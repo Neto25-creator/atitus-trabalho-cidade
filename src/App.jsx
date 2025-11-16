@@ -18,7 +18,9 @@ function App() {
         <Route
           path="/map"
           element={
-              <Map />
+              <PrivateRoute>
+                <Map />
+              </PrivateRoute>
           }
         />
         <Route path="*" element={<Navigate to="/login" />} />

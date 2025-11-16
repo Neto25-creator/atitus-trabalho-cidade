@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const BASE_URL = 'https://ripe-donella-atitus-fbbf314a.koyeb.app/ws/point';
+const BASE_URL = 'https://grand-aloysia-urubus-ad728437.koyeb.app/auth';
 
 
 

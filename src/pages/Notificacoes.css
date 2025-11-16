@@ -1,10 +1,11 @@
 .relatos-container{
+    position: relative;
+    height: 98vh;
     font-family: "Poppins", sans-serif;
 }
 
 .nav-card-1 {
     margin-left: 2vh;
-    margin-top: 2vh;
     display: flex;
     align-items: center;
     font-size: 14.5px;
