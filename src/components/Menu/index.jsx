@@ -1,40 +1,43 @@
-import "./menu.css"
-import { Link } from "react-router-dom";
+import "./menu.css";
+import { Link, useLocation } from "react-router-dom";
 
 import { FaHome } from "react-icons/fa";
 import { MdMessage } from "react-icons/md";
 import { IoMdNotifications } from "react-icons/io";
 import { MdPeopleAlt } from "react-icons/md";
-import { FaCirclePlus } from "react-icons/fa6";
+import { FaPlus } from "react-icons/fa";
 
 export function Menu() {
+
+    const { pathname } = useLocation();
+
+    const isActive = (route) => pathname === route ? "active" : "";
+
     return (
         <div className="menu-container">
-            <div className="menu">
-                <div className="menu-card">
-                     <Link to={"/map"}><FaHome size={25}/></Link>
-                     <Link to={"/map"}><span>Home</span></Link>
-                </div>
+            <div className="menu-glass">
 
-                <div className="menu-card">
-                    <Link to={"/relatos"}><MdMessage size={25}/></Link>
-                    <Link to={"/relatos"}><span>Relatos</span></Link>
-                </div>
+                <Link to="/map" className={`menu-item ${isActive("/map")}`}>
+                    <FaHome />
+                </Link>
 
-                <div className="menu-card">
-                    <Link to= {"/cadastro-problema"}><FaCirclePlus size={40} color="#4a7be3"/></Link>
-                    <Link to={"/cadastro-problema"}><span>Cadastrar</span></Link>
-                </div>
-                
-                <div className="menu-card">
-                    <Link to={"/notificacoes"}><IoMdNotifications size={25}/></Link>
-                    <Link to={"/notificacoes"}><span>Notificações</span></Link>
-                </div>
+                <Link to="/relatos" className={`menu-item ${isActive("/relatos")}`}>
+                    <MdMessage />
+                </Link>
 
-                <div className="menu-card">
-                   <Link to={"/perfil"}><MdPeopleAlt size={25}/></Link>
-                    <Link to={"/perfil"}><span>Perfil</span></Link>
-                </div>
+                {/* BOTÃO CENTRAL FLUTUANTE */}
+                <Link to="/cadastro-problema" className="menu-center-btn">
+                    <FaPlus />
+                </Link>
+
+                <Link to="/notificacoes" className={`menu-item ${isActive("/notificacoes")}`}>
+                    <IoMdNotifications />
+                </Link>
+
+                <Link to="/perfil" className={`menu-item ${isActive("/perfil")}`}>
+                    <MdPeopleAlt />
+                </Link>
+
             </div>
         </div>
     );
