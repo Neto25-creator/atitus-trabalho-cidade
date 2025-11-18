@@ -79,20 +79,20 @@
 
 /* LADO ESQUERDO */
 .icon-home {
-    left: 3vw;       /* ajuste aqui */
+    left: 8%;       /* ajuste aqui */
 }
 
 .icon-relatos {
-    left: 22vw;      /* ajuste aqui */
+    left: 26%;      /* ajuste aqui */
 }
 
 /* LADO DIREITO */
 .icon-notificacoes {
-    right: 22vw;     /* ajuste aqui */
+    right: 26%;     /* ajuste aqui */
 }
 
 .icon-perfil {
-    right: 3vw;      /* ajuste aqui */
+    right: 8%;      /* ajuste aqui */
 }
 
 
