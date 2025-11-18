@@ -26,7 +26,7 @@ export function Login() {
     }
   };
 
-
+  
   return (
     <div className="auth-page">
       <div className="auth-box">

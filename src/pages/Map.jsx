@@ -1,6 +1,6 @@
 // Map.jsx
 
-import { useEffect, useState, useCallback } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import { Navbar } from "../components";
 import { Menu } from "../components/Menu"; // Importe Menu
 import { Search } from "../components/Search";
@@ -8,6 +8,7 @@ import { CadastroProblemaCard } from "../components/CadastroProblemaCard";
 import { GoogleMap, Marker, useJsApiLoader } from "@react-google-maps/api";
 import { getPoints, postPoint } from '../services/mapService';
 import { useAuth } from "../contexts/AuthContext";
+
 
 const containerStyle = {
   width: "100%",
@@ -33,6 +34,7 @@ export const Map = () => {
     const [mapCenter, setMapCenter] = useState(center);
     const [addressData, setAddressData] = useState({ city: '', fullAddress: '' }); 
     const [clickedLocation, setClickedLocation] = useState(null); 
+    const [profileVisible, setProfileVisible] = useState(false);
 
     // Carregamento da API do Google Maps e Geocoding
     const { isLoaded } = useJsApiLoader({ 
@@ -167,11 +169,17 @@ export const Map = () => {
             <Navbar />
             <Search onSearchSubmit={handleSearchSubmit} /> 
             
-            <CadastroProblemaCard
-                position={clickedLocation} 
-                onClose={handleCloseCard} 
-                addressData={addressData}
-            />
+                        <CadastroProblemaCard
+                                position={clickedLocation} 
+                                onClose={handleCloseCard} 
+                                addressData={addressData}
+                        />
+
+                        {/* Profile card overlay */}
+                        {/* dynamic import to avoid circular issues */}
+                        {profileVisible && (
+                            <ProfileCard visible={profileVisible} onClose={() => setProfileVisible(false)} />
+                        )}
 
             <div style={{ 
                 width: "100%", 
@@ -213,7 +221,7 @@ export const Map = () => {
                 )}
             </div>
             {/* 📌 NOVO: Passa a função handleMenuCenterClick como prop */}
-            <Menu onCenterClick={handleMenuCenterClick} /> 
+            <Menu onCenterClick={handleMenuCenterClick} onProfileClick={() => setProfileVisible(true)} /> 
         </div>
     );
 };
