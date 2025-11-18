@@ -62,7 +62,7 @@ export function CadastroProblemaCard({position, onClose, addressData}){
             <label className="label">Categoria</label>
 
             <div className="category-group">
-              {["Buracos", "Vazamentos", "Iluminação", "Saneamento", "Outros"].map((c, i) => (
+              {["Segurança", "Infraestrutura", "Saneamento", "Outros"].map((c, i) => (
                 <button key={i} className="category-button">
                   {c}
                 </button>
