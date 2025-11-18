@@ -7,6 +7,9 @@ import "./Profile.css";
 export function Profile() {
     const { user } = useAuth();
 
+    const userName = localStorage.getItem('user_name_temp')
+    const displayName = userName || "Usuário(a)";
+
     return (
         <div className="profile-overlay">
             
@@ -18,7 +21,7 @@ export function Profile() {
 
                 {user && (
                     <div className="profile-info">
-                        <h2>Bem-vindo {user.nome}</h2>
+                        <h2>Bem-vindo(a), {displayName}</h2>
                         <h2>Seu email: {user.email}</h2>
                     </div>
                 )}
