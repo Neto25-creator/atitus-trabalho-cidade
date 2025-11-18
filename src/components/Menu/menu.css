@@ -46,6 +46,7 @@
 
 /* BOTÃO CENTRAL */
 .menu-center-btn {
+    cursor: pointer;
     position: absolute;
 
     top: 50%;

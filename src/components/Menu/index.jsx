@@ -1,3 +1,5 @@
+// Menu.jsx
+
 import "./menu.css";
 import { Link, useLocation } from "react-router-dom";
 
@@ -7,7 +9,8 @@ import { IoMdNotifications } from "react-icons/io";
 import { MdPeopleAlt } from "react-icons/md";
 import { FaPlus } from "react-icons/fa";
 
-export function Menu() {
+// 📌 Recebe a função onCenterClick como prop
+export function Menu({ onCenterClick }) { 
 
     const { pathname } = useLocation();
     const isActive = (route) => pathname === route ? "active" : "";
@@ -33,9 +36,10 @@ export function Menu() {
                 </Link>
 
                 {/* BOTÃO CENTRAL FIXO */}
-                <Link to="/cadastro-problema" className="menu-center-btn">
+                {/* 📌 Adiciona o onClick chamando a função recebida */}
+                <button className="menu-center-btn" onClick={onCenterClick}> 
                     <FaPlus />
-                </Link>
+                </button>
 
                 {/* NOTIFICAÇÕES */}
                 <Link 

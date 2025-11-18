@@ -1,11 +1,16 @@
 /* CONTAINER GERAL */
 .page-container {
-    width: 100%;
-    min-height: 100vh;
+    position: absolute;
+    top: 15.5%;
+    right: 20px;
+    width: 35%;
     background: #f5f7fb;
     display: flex;
     justify-content: center;
-    padding: 40px 40px;
+    padding: 10px;
+    z-index: 10;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
   }
   
   /* CAIXA CENTRAL */
@@ -15,7 +20,6 @@
     background: white;
     padding: 40px;
     border-radius: 20px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
   }
   
   /* NAV */
@@ -26,6 +30,10 @@
     margin-bottom: 30px;
   }
   
+  .nav button {
+    cursor: pointer;
+  }
+
   .back-button {
     display: flex;
     align-items: center;
@@ -47,8 +55,8 @@
   }
   
   .upload-button {
-    width: 240px;
-    height: 55px;
+    width: 25vh;
+    height: 4vh;
     background: #6fa8ff;
     color: white;
     border-radius: 12px;
@@ -84,7 +92,6 @@
   .label {
     font-size: 14px;
     font-weight: 600;
-    margin-bottom: 6px;
     display: block;
   }
   
@@ -95,7 +102,7 @@
     width: 100%;
     background: #eef3fa;
     border-radius: 12px;
-    padding: 14px;
+    padding: 10px;
     border: none;
     outline: none;
     font-size: 14px;
@@ -110,7 +117,7 @@
   .input-icon-wrapper {
     background: #eef3fa;
     border-radius: 12px;
-    padding: 14px;
+    padding: 10px;
     display: flex;
     align-items: center;
     gap: 10px;
@@ -119,12 +126,12 @@
   /* CATEGORIAS */
   .category-group {
     display: flex;
-    gap: 10px;
+    gap: 5px;
     flex-wrap: wrap;
   }
   
   .category-button {
-    padding: 10px 18px;
+    padding: 5px 18px 0 18px;
     background: #eef3fa;
     border-radius: 12px;
     border: none;
@@ -141,7 +148,6 @@
   /* BOTÃO FINAL */
   .submit-button {
     width: 100%;
-    margin-top: 40px;
     padding: 16px;
     background: #6fa8ff;
     color: white;

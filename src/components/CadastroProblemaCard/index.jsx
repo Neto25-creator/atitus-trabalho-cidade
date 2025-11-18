@@ -1,29 +1,32 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
-import { IoIosArrowBack } from "react-icons/io";
+import { IoMdClose } from "react-icons/io";
 import { FiMapPin } from "react-icons/fi";
-import { Menu } from "../components/Menu";
-import "./CadastroProblema.css";
+import "./cadastroProblemaCard.css";
 
-export default function CadastroProblema() {
-  const [fileName, setFileName] = useState(null);
+export function CadastroProblemaCard({position, onClose, addressData}){
+    const [fileName, setFileName] = useState(null);
 
-  function handleFileChange(e) {
-    const file = e.target.files[0];
-    if (file) setFileName(file.name);
-  }
+    const lat = position ? position.lat : '';
+    const lng = position ? position.lng : '';
 
-  return (
-    <div className="page-container">
+    const { city, fullAddress } = addressData;
+
+      function handleFileChange(e) {
+        const file = e.target.files[0];
+        if (file) setFileName(file.name);
+      }
+
+    if (!position) return null;
+
+    return(
+        <div className="page-container">
       
       <div className="form-box">
         
         {/* NAV */}
         <nav className="nav">
-          <Link to={"/map"} className="back-button">
-            <IoIosArrowBack size={22} />
-          </Link>
-          <span className="nav-title">Novo Relato</span>
+            <span className="nav-title">Novo Relato</span>
+            <button onClick={onClose}><IoMdClose size={23}/></button>
         </nav>
 
         {/* UPLOAD */}
@@ -72,7 +75,7 @@ export default function CadastroProblema() {
             <label className="label">Cidade</label>
             <div className="input-icon-wrapper">
               <FiMapPin size={18} />
-              <input className="input-no-bg" placeholder="Passo Fundo" />
+              <input className="input-no-bg" placeholder="Passo Fundo" value={city} readOnly/>
             </div>
           </div>
 
@@ -81,7 +84,7 @@ export default function CadastroProblema() {
             <label className="label">Endereço</label>
             <div className="input-icon-wrapper">
               <FiMapPin size={18} />
-              <input className="input-no-bg" placeholder="Rua Dom Pedro II, Petrópolis" />
+              <input className="input-no-bg" placeholder="Rua Dom Pedro II, Petrópolis" value={fullAddress} readOnly/>
             </div>
           </div>
 
@@ -98,7 +101,6 @@ export default function CadastroProblema() {
         </button>
       </div>
 
-      <Menu />
     </div>
-  );
+    )
 }
