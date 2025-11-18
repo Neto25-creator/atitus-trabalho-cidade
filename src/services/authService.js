@@ -15,7 +15,7 @@ export async function signIn(email, password) {
         throw new Error('Usuário ou senha incorretos.');
       }
     }
-    throw new Error('Erro ao autenticar.');
+    throw new Error('Erro ao autenticar. Sua senha deve conter no mínimo 8 caracteres, contendo ao menos uma letra maiúscula, uma letra minúscula e um número.');
   }
 }
 
