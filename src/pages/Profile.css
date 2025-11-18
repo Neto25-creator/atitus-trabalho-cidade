@@ -77,3 +77,29 @@
         font-size: 14px;
     }
 }
+
+/* Overrides for ProfileCard inside form-box to remove moldura and center icon */
+.profile-form-box .profile-photo--large {
+    width: 120px;
+    height: 120px;
+    border-radius: 100%;
+    overflow: hidden;
+    margin-bottom: 8px;
+    box-shadow: none; /* remove moldura/ombra */
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile-form-box .profile-photo--large img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.profile-form-box .profile-icon { display:flex; align-items:center; justify-content:center; width:100%; height:100%; }
+
+/* Ensure the form-box centers content */
+.profile-form-box { align-items: center; text-align: center; }

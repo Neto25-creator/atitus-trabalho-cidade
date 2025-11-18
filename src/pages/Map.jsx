@@ -7,6 +7,7 @@ import { GoogleMap, Marker, useJsApiLoader } from "@react-google-maps/api";
 import { getPoints, postPoint } from '../services/mapService';
 import { useAuth } from "../contexts/AuthContext";
 
+
 const containerStyle = {
   width: "100%",
   height: "100%",
