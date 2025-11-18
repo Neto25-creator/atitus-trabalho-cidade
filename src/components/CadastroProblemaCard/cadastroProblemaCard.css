@@ -145,6 +145,11 @@
     color: white;
   }
   
+  .category-button.selected {
+    background: #6fa8ff;
+    color: white;
+  }
+
   /* BOTÃO FINAL */
   .submit-button {
     width: 100%;
