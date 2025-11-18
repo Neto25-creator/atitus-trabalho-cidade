@@ -1,13 +1,11 @@
 /* CONTAINER GERAL */
 .page-container {
     width: 100%;
-    padding-bottom: 140px;
-    width: 100%;
     min-height: 100vh;
     background: #f5f7fb;
     display: flex;
     justify-content: center;
-    padding: 20px 40px;
+    padding: 40px 40px;
   }
   
   /* CAIXA CENTRAL */
@@ -24,7 +22,7 @@
   .nav {
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 10px;
     margin-bottom: 30px;
   }
   
