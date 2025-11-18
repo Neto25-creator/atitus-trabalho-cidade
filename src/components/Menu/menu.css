@@ -6,76 +6,100 @@
     display: flex;
     justify-content: center;
     z-index: 999;
-  }
-  
-  /* FUNDO VIDRO */
-  .menu-glass {
+}
+
+/* FUNDO VIDRO */
+.menu-glass {
     width: 90%;
     max-width: 480px;
     height: 65px;
-  
+
     background: rgba(255, 255, 255, 0.27);
     backdrop-filter: blur(10px);
-  
+
     border-radius: 22px;
     border: 1px solid rgba(255, 255, 255, 0.35);
-  
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-  
+
+    position: relative; /* NECESSÁRIO para posicionamento absoluto dos ícones */
+
     box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.15);
-    position: relative;
-  }
-  
-  /* BOTÕES PADRÃO */
-  .menu-item {
+}
+
+/* ÍCONES */
+.menu-item {
+    position: absolute;      /* Agora cada ícone é posicionado individualmente */
     font-size: 24px;
     color: #6e6e6e;
-    transition: 0.25s;
-  }
-  
-  .menu-item:hover {
-    transform: scale(1.15);
+    transition: .25s;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.menu-item:hover {
+    transform: translateY(-50%) scale(1.18);
     color: #4a7be3;
-  }
-  
-  /* ATIVO */
-  .menu-item.active {
+}
+
+.menu-item.active {
     color: #4a7be3;
-    transform: scale(1.2);
-  }
-  
-  /* BOTÃO FLUTUANTE CENTRAL */
-  .menu-center-btn {
+    transform: translateY(-50%) scale(1.25);
+}
+
+/* BOTÃO CENTRAL */
+.menu-center-btn {
     position: absolute;
-    top: -10px;
-  
-    width: 50px;
-    height: 50px;
-  
+
+    top: 50%;
+    left: 50%;          /* CENTRADO SEMPRE */
+    transform: translate(-50%, -50%);
+
+    width: 42px;
+    height: 42px;
+
     border-radius: 50%;
     background: #4a7be3;
     color: white;
     font-size: 30px;
-  
+
     display: flex;
     justify-content: center;
     align-items: center;
-  
+
     box-shadow: 0 4px 18px rgba(74, 123, 227, 0.45);
-  
+
     transition: 0.25s;
-  }
-  
-  .menu-center-btn:hover {
-    transform: translateY(-4px) scale(1.07);
+}
+
+.menu-center-btn:hover {
+    transform: translate(-50%, -55%) scale(1.07);
     background: #5b8cff;
-  }
-  
-  @media (max-width: 900px) {
+}
+
+/* POSICIONAMENTO INDIVIDUAL — AGORA VOCÊ CONTROLA TUDO EM VW */
+
+/* LADO ESQUERDO */
+.icon-home {
+    left: 3vw;       /* ajuste aqui */
+}
+
+.icon-relatos {
+    left: 22vw;      /* ajuste aqui */
+}
+
+/* LADO DIREITO */
+.icon-notificacoes {
+    right: 22vw;     /* ajuste aqui */
+}
+
+.icon-perfil {
+    right: 3vw;      /* ajuste aqui */
+}
+
+
+/* MOBILE */
+@media (max-width: 900px) {
     .menu-glass {
-      width: 100%;
-      border-radius: 25px;
+        width: 100%;
+        border-radius: 25px;
     }
-  }
+}

@@ -41,6 +41,7 @@ export function Register() {
             <form onSubmit={handleSubmit}>
               <div className="input-group">
                 <Input
+                  id="name"
                   label="Nome"
                   placeholder="Digite seu nome..."
                   type="text"

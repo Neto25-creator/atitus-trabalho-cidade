@@ -10,31 +10,46 @@ import { FaPlus } from "react-icons/fa";
 export function Menu() {
 
     const { pathname } = useLocation();
-
     const isActive = (route) => pathname === route ? "active" : "";
 
     return (
         <div className="menu-container">
             <div className="menu-glass">
 
-                <Link to="/map" className={`menu-item ${isActive("/map")}`}>
+                {/* HOME — controle individual */}
+                <Link 
+                    to="/map" 
+                    className={`menu-item icon-home ${isActive("/map")}`}
+                >
                     <FaHome />
                 </Link>
 
-                <Link to="/relatos" className={`menu-item ${isActive("/relatos")}`}>
+                {/* RELATOS */}
+                <Link 
+                    to="/relatos" 
+                    className={`menu-item icon-relatos ${isActive("/relatos")}`}
+                >
                     <MdMessage />
                 </Link>
 
-                {/* BOTÃO CENTRAL FLUTUANTE */}
+                {/* BOTÃO CENTRAL FIXO */}
                 <Link to="/cadastro-problema" className="menu-center-btn">
                     <FaPlus />
                 </Link>
 
-                <Link to="/notificacoes" className={`menu-item ${isActive("/notificacoes")}`}>
+                {/* NOTIFICAÇÕES */}
+                <Link 
+                    to="/notificacoes" 
+                    className={`menu-item icon-notificacoes ${isActive("/notificacoes")}`}
+                >
                     <IoMdNotifications />
                 </Link>
 
-                <Link to="/perfil" className={`menu-item ${isActive("/perfil")}`}>
+                {/* PERFIL */}
+                <Link 
+                    to="/perfil" 
+                    className={`menu-item icon-perfil ${isActive("/perfil")}`}
+                >
                     <MdPeopleAlt />
                 </Link>
 

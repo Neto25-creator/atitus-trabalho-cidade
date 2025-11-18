@@ -122,7 +122,7 @@ export const Map = () => {
       {/* Container que define a largura de 70% e centraliza o mapa */}
       <div style={{ 
             width: "100%", 
-            height: "90.5%", 
+            height: "100%", 
         }}>
         {isLoaded ? (
           <GoogleMap
@@ -151,3 +151,4 @@ export const Map = () => {
     </>
   );
 };
+export default Map;
