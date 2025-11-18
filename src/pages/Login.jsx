@@ -7,7 +7,7 @@ import { AuthCarousel } from "./AuthCarousel";
 import "./AuthPages.css";
 
 export function Login() {
-  const [name, setName] = useState(localStorage.getItem("user_name_temp") || "");
+
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
   const [erro, setErro] = useState("");
@@ -26,11 +26,6 @@ export function Login() {
     }
   };
 
-  const handleNameChange = (e) => {
-    const newName = e.target.value;
-    setName(newName)
-    localStorage.setItem("user_name_temp", newName)
-  }
 
   return (
     <div className="auth-page">
@@ -44,17 +39,6 @@ export function Login() {
           <div className="auth-form">
             <Title title="Login" />
             <form onSubmit={handleSubmit}>
-              <div className="input-group">
-                <Input
-                  id="name"
-                  label="Nome"
-                  placeholder="Digite seu nome..."
-                  type="text"
-                  required
-                  value={name}
-                  onChange={handleNameChange}
-                  />
-              </div>
 
 
               <div className="input-group">
