@@ -1,4 +1,4 @@
-
+import React, { useEffect, useState } from "react";
 import { useAuth } from "../contexts/AuthContext";
 import { Menu } from "../components/Menu";
 import { FaUserCircle } from "react-icons/fa";
@@ -7,6 +7,7 @@ import "./Profile.css";
 
 export function Profile() {
     const { user } = useAuth();
+    const [avatar, setAvatar] = useState(null);
 
  
     return (
