@@ -37,12 +37,12 @@ export function Menu({ handleCenterClick }) {
 
                 {/* BOTÃO CENTRAL FIXO */}
                 {/* ✅ Chama a nova função do Map.jsx que simula o clique */}
-                <button 
+                <Link to={"/map"}><button 
                     className="menu-center-btn" 
                     onClick={handleCenterClick} // <-- FUNÇÃO CORRIGIDA
                 > 
                     <FaPlus />
-                </button>
+                </button></Link>
 
                 {/* NOTIFICAÇÕES */}
                 <Link 
