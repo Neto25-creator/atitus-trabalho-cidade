@@ -40,7 +40,7 @@ return (
 <div className="card">
 <div className="card-icon"><MdWaterDrop size={28} /></div>
 <div className="card-info">
-<h4>Vazamento de água - Encaminhado ao departamento de obras</h4>
+<h4>Vazamento de água - Seu relato foi encaminhado ao departamento de obras!</h4>
 <p>Rompimento na tubulação de abastecimento</p>
 </div>
 <div className="card-details"><FiMoreVertical size={20} /></div>
@@ -51,7 +51,7 @@ return (
 <div className="card">
 <div className="card-icon"><MdWarning size={28} /></div>
 <div className="card-info">
-<h4>Buraco - Encaminhado ao departamento de obras</h4>
+<h4>Seu relato sobre "buraco" foi registrado com sucesso! A equipe da prefeitura irá encaminhar para o setor responsável para que as providências sejam tomadas.</h4>
 <p>Buraco de grande porte dificultando o tráfego</p>
 </div>
 <div className="card-details"><FiMoreVertical size={20} /></div>
