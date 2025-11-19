@@ -1,76 +1,73 @@
-.relatos-container{
-    font-family: "Poppins", sans-serif;
+.relatos-container {
+font-family: "Poppins", sans-serif;
 }
 
-.nav-card-1 {
-    margin-left: 2vh;
-    margin-top: 2vh;
-    display: flex;
-    align-items: center;
-    font-size: 14.5px;
+
+.tab-active {
+padding-bottom: 6px;
+border-bottom: 2px solid #4a7be3;
+color: #4a7be3;
+font-weight: bold;
 }
 
-.nav-card-1 span{
-    margin-left: 2vh;
+
+.tab-default {
+padding-bottom: 6px;
+transition: .2s;
 }
 
-.nav-card-2 {
-    margin-top: 3vh;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    height: 9vh;
-    font-size: 13.5px;
+
+.tab-default:hover {
+color: #4a7be3;
 }
 
-.nav-card-2-section{
-    height: 50%;
+
+.card {
+display: flex;
+align-items: center;
+background: white;
+padding: 16px;
+border-radius: 16px;
+box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+transition: .2s;
 }
 
-.nav-card-2-section:hover{
-    color: #4a7be3;
-    border-bottom: 1px solid #4a7be3;
+
+.card:hover {
+transform: translateY(-2px);
+box-shadow: 0 6px 14px rgba(0,0,0,0.08);
 }
 
-.nav-card-3{
-    font-size: 12px;
-    margin-left: 2vh;
-    margin-bottom: 4vh;
-    color: #949494;
+
+.card-icon {
+display: flex;
+justify-content: center;
+align-items: center;
+width: 40px;
+height: 40px;
+background: #e8efff;
+color: #4a7be3;
+border-radius: 12px;
+margin-right: 14px;
 }
 
-.relatos-card{
-    margin-top: 2vh;
-    display: flex;
-    align-items: center;
-    font-size: 12px;
+
+.card-info h4 {
+font-size: 14px;
+font-weight: 600;
 }
 
-.relatos-card-content{
-    display: flex;
-    flex-direction: column;
-    width: 100%;
+
+.card-info p {
+font-size: 12px;
+color: #777;
+margin-top: 4px;
 }
 
-.relatos-card-img{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 50% ;
-}
 
-.relatos-card-details{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 50%;
-    font-size: 4vh;
-}
-
-.relatos-card h4 {
-    font-weight: bold;
-}
-
-.relatos-card p {
-    color: #949494;
+.card-details {
+margin-left: auto;
+display: flex;
+align-items: center;
+color: #777;
 }

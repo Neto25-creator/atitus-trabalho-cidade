@@ -89,7 +89,7 @@ export function CadastroProblemaCard({ position, onClose, addressData, onSubmit 
                     <div className="grid-item">
                         <label className="label">Categoria</label>
                         <div className="category-group">
-                            {["Buracos", "Vazamentos", "Iluminação", "Saneamento", "Outros"].map((c, i) => (
+                            {["Segurança", "Infraestrutura","Saneamento", "Outros"].map((c, i) => (
                                 <button 
                                     key={i} 
                                     type="button" 
