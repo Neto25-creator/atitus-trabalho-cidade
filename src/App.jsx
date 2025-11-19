@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-d
 import { Login } from "./pages/Login";
 import { Register } from "./pages/Register";
 import { Map } from "./pages/Map";
-import { Relatos } from "./pages/Relatos";
+import  Relatos  from "./pages/Relatos";
 import { Profile } from "./pages/Profile";
 import { PrivateRoute } from "./components/PrivateRoute";
 import Notificacoes from "./pages/Notificacoes";
