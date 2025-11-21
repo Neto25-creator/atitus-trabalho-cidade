@@ -4,6 +4,7 @@ import { signIn } from "../services/authService";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
 import { AuthCarousel } from "./AuthCarousel";
+import { Loader } from "../components/Loader"; // << IMPORTANTE
 import "./AuthPages.css";
 
 export function Login() {
@@ -11,35 +12,39 @@ export function Login() {
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
   const [erro, setErro] = useState("");
+  const [loading, setLoading] = useState(false);
+
   const navigate = useNavigate();
   const { login } = useAuth();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setErro("");
+    setLoading(true);
+
     try {
       const token = await signIn(email, senha);
       login(token);
       navigate("/map");
     } catch (err) {
       setErro(err.message);
+      setLoading(false);
     }
   };
 
-  
   return (
     <div className="auth-page">
       <div className="auth-box">
         <div className="auth-left">
-           <Logo />
+          <Logo />
           <AuthCarousel />
         </div>
 
         <div className="auth-right">
           <div className="auth-form">
             <Title title="Login" />
-            <form onSubmit={handleSubmit}>
 
+            <form onSubmit={handleSubmit}>
 
               <div className="input-group">
                 <Input
@@ -71,8 +76,8 @@ export function Login() {
               {erro && <p className="error-text">{erro}</p>}
 
               <div className="button-area">
-                <Button type="submit" className="auth-btn">
-                  Entrar
+                <Button type="submit" className="auth-btn" disabled={loading}>
+                  {loading ? <Loader /> : "Entrar"}
                 </Button>
               </div>
             </form>
