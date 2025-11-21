@@ -72,4 +72,10 @@ align-items: center;
 color: #777;
 }
 
+.ilustrativa{
+    display: flex;
+    align-items: center;
+    margin: auto;
+}
+
 

@@ -71,3 +71,16 @@ display: flex;
 align-items: center;
 color: #777;
 }
+
+
+
+
+.btn-detalhes {
+background: #4a7be3;
+color: white;
+border: none;
+border-radius: 8px;
+padding: 8px 16px;
+cursor: pointer;
+transition: background .2s;
+}
