@@ -1,96 +1,92 @@
 .relatos-container {
-font-family: "Poppins", sans-serif;
+    font-family: "Poppins", sans-serif;
 }
-
 
 .tab-active {
-padding-bottom: 6px;
-border-bottom: 2px solid #4a7be3;
-color: #4a7be3;
-font-weight: bold;
+    padding-bottom: 6px;
+    border-bottom: 2px solid #4a7be3;
+    color: #4a7be3;
+    font-weight: bold;
 }
-
 
 .tab-default {
-padding-bottom: 6px;
-transition: .2s;
+    padding-bottom: 6px;
+    transition: .2s;
 }
-
 
 .tab-default:hover {
-color: #4a7be3;
+    color: #4a7be3;
 }
 
-
-.card {
-display: flex;
-align-items: center;
-background: white;
-padding: 16px;
-border-radius: 16px;
-transition: .2s;
-}
-
-
-.pre-card:hover {
-transform: translateY(-2px);
-box-shadow: 0 6px 14px rgba(0,0,0,0.08);
-}
-
-
-.card-icon {
-display: flex;
-justify-content: center;
-align-items: center;
-width: 40px;
-height: 40px;
-background: #e8efff;
-color: #4a7be3;
-border-radius: 12px;
-margin-right: 14px;
-}
-
-
-.card-info h4 {
-font-size: 14px;
-font-weight: 600;
-}
-
-
-.card-info p {
-font-size: 12px;
-color: #777;
-margin-top: 4px;
-}
-
-
-.card-details {
-margin-left: auto;
-display: flex;
-align-items: center;
-color: #777;
-}
-
-.pre-card{
-    background: white;
+.pre-card {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-start; 
+    gap: 14px;
+    background: white;
+    padding: 16px;
+    border-radius: 16px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    transition: .2s;
 }
 
+.pre-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(0,0,0,0.08);
+}
+
+.card-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background: #e8efff;
+    color: #4a7be3;
+    border-radius: 12px;
+}
+
+.card-info h4 {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.card-info p {
+    font-size: 12px;
+    color: #777;
+    margin-top: 4px;
+}
+
+.buttons-area {
+    margin-left: auto;
+    display: flex;
+    gap: 8px;
+}
 
 .btn-detalhes {
-display: flex;
-justify-content: center;
-align-items: center;
-height: 4vh;
-background: #4a7be3;
-color: white;
-border: none;
-border-radius: 8px;
-padding: 8px 16px;
-cursor: pointer;
-transition: background .2s;
-margin-right: 1.5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 4vh;
+    background: #4a7be3;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 16px;
+    cursor: pointer;
+    transition: background .2s;
+}
+
+.btn-excluir {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 4vh;
+    background: #e34545;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 16px;
+    cursor: pointer;
+    transition: backgr
 }

@@ -1,4 +1,4 @@
-/* CONTAINER */
+
 .menu-container {
     position: fixed;
     bottom: 15px;
@@ -8,7 +8,7 @@
     z-index: 999;
 }
 
-/* FUNDO VIDRO */
+
 .menu-glass {
     width: 90%;
     max-width: 480px;
@@ -19,14 +19,14 @@
     border-radius: 22px;
     border: 1px solid rgba(255, 255, 255, 0.35);
 
-    position: relative; /* NECESSÁRIO para posicionamento absoluto dos ícones */
+    position: relative; 
 
     box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.15);
 }
 
-/* ÍCONES */
+
 .menu-item {
-    position: absolute;      /* Agora cada ícone é posicionado individualmente */
+    position: absolute;     
     font-size: 24px;
     color: #6e6e6e;
     transition: .25s;
@@ -44,13 +44,13 @@
     transform: translateY(-50%) scale(1.25);
 }
 
-/* BOTÃO CENTRAL */
+
 .menu-center-btn {
     cursor: pointer;
     position: absolute;
 
     top: 50%;
-    left: 50%;          /* CENTRADO SEMPRE */
+    left: 50%;         
     transform: translate(-50%, -50%);
 
     width: 42px;
@@ -75,26 +75,25 @@
     background: #5b8cff;
 }
 
-/* POSICIONAMENTO INDIVIDUAL — AGORA VOCÊ CONTROLA TUDO EM VW */
 
-/* LADO ESQUERDO */
+
+
 .icon-home {
-    left: 8%;       /* ajuste aqui */
+    left: 8%;       
 }
 
 .icon-relatos {
-    left: 26%;      /* ajuste aqui */
+    left: 26%;     
 }
 
-/* LADO DIREITO */
+
 .icon-notificacoes {
-    right: 26%;     /* ajuste aqui */
+    right: 26%;   
 }
 
 .icon-perfil {
-    right: 8%;      /* ajuste aqui */
+    right: 8%;      
 }
-
 
 /* MOBILE */
 @media (max-width: 900px) {

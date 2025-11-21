@@ -1,4 +1,4 @@
-// Menu.jsx
+
 
 import "./menu.css";
 import { Link, useLocation } from "react-router-dom";
@@ -9,7 +9,7 @@ import { IoMdNotifications } from "react-icons/io";
 import { MdPeopleAlt } from "react-icons/md";
 import { FaPlus } from "react-icons/fa";
 
-// 📌 Recebe a nova função handleCenterClick como prop
+
 export function Menu({ handleCenterClick }) { 
 
     const { pathname } = useLocation();
@@ -19,7 +19,7 @@ export function Menu({ handleCenterClick }) {
         <div className="menu-container">
             <div className="menu-glass">
 
-                {/* HOME — controle individual */}
+ 
                 <Link 
                     to="/map" 
                     className={`menu-item icon-home ${isActive("/map")}`}
@@ -27,7 +27,7 @@ export function Menu({ handleCenterClick }) {
                     <FaHome />
                 </Link>
 
-                {/* RELATOS */}
+
                 <Link 
                     to="/relatos" 
                     className={`menu-item icon-relatos ${isActive("/relatos")}`}
@@ -35,16 +35,14 @@ export function Menu({ handleCenterClick }) {
                     <MdMessage />
                 </Link>
 
-                {/* BOTÃO CENTRAL FIXO */}
-                {/* ✅ Chama a nova função do Map.jsx que simula o clique */}
                 <Link to={"/map"}><button 
                     className="menu-center-btn" 
-                    onClick={handleCenterClick} // <-- FUNÇÃO CORRIGIDA
+                    onClick={handleCenterClick} 
                 > 
                     <FaPlus />
                 </button></Link>
 
-                {/* NOTIFICAÇÕES */}
+
                 <Link 
                     to="/notificacoes" 
                     className={`menu-item icon-notificacoes ${isActive("/notificacoes")}`}
@@ -52,7 +50,6 @@ export function Menu({ handleCenterClick }) {
                     <IoMdNotifications />
                 </Link>
 
-                {/* PERFIL */}
                 <Link 
                     to="/perfil" 
                     className={`menu-item icon-perfil ${isActive("/perfil")}`}
