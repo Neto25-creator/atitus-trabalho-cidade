@@ -72,10 +72,18 @@ align-items: center;
 color: #777;
 }
 
-
+.pre-card{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
 
 
 .btn-detalhes {
+display: flex;
+justify-content: center;
+align-items: center;
+height: 4vh;
 background: #4a7be3;
 color: white;
 border: none;

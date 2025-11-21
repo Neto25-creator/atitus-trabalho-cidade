@@ -1,0 +1,107 @@
+/*
+|---------------------------------------------------------
+| modal-backdrop (fixed inset-0 flex items-center justify-center bg-opacity-50 z-50)
+|---------------------------------------------------------
+*/
+.modal-backdrop {
+    /* fixed inset-0 */
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    
+    /* flex items-center justify-center */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    /* bg-opacity-50 */
+    background-color: rgba(0, 0, 0, 0.5); /* Fundo preto com 50% de opacidade */
+    
+    /* z-50 */
+    z-index: 50;
+}
+
+/*
+|---------------------------------------------------------
+| modal-content (bg-white w-11/12 max-w-md p-6 rounded-xl shadow-xl)
+|---------------------------------------------------------
+*/
+.modal-content {
+    /* bg-white */
+    background-color: white;
+    
+    /* w-11/12 */
+    width: 91.666667%; /* Equivalente a 11/12 */
+    
+    /* max-w-md */
+    max-width: 28rem; /* Equivalente a 448px */
+    
+    /* p-6 */
+    padding: 1.5rem; /* 24px */
+    
+    /* rounded-xl */
+    border-radius: 0.75rem; /* 12px */
+    
+    /* shadow-xl */
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/*
+|---------------------------------------------------------
+| modal-header (flex justify-between items-center mb-4)
+|---------------------------------------------------------
+*/
+.modal-header {
+    /* flex justify-between items-center */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    /* mb-4 */
+    margin-bottom: 1rem; /* 16px */
+}
+
+.modal-title {
+    /* text-lg font-semibold */
+    font-size: 1.125rem; /* 18px */
+    font-weight: 600;
+}
+
+.modal-close-button {
+    /* Para remover qualquer estilo padrão de botão que possa interferir */
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    display: flex; /* Para garantir que o ícone IoMdClose fique centralizado */
+    align-items: center;
+    color: #333; /* Cor para o ícone */
+}
+
+/* Estilos de detalhes para espaçamento */
+.modal-body-details p {
+    margin-bottom: 0.5rem; /* Espaçamento entre as linhas de detalhes */
+    line-height: 1.4;
+}
+
+/*
+|---------------------------------------------------------
+| relato-image (w-full rounded-lg mt-4)
+|---------------------------------------------------------
+*/
+.relato-image {
+    /* w-full */
+    width: 100%;
+    
+    /* rounded-lg */
+    border-radius: 0.5rem; /* 8px */
+    
+    /* mt-4 */
+    margin-top: 1rem; /* 16px */
+    
+    /* Para garantir que a imagem não distorça */
+    height: auto;
+    object-fit: cover;
+}

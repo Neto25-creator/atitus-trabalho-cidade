@@ -7,7 +7,7 @@ import "./Relatos.css";
 import { useAuth } from "../contexts/AuthContext";
 import { getPoints, getReverseGeocodeAddress } from "../services/mapService";
 import { useState, useEffect } from 'react';
-import { ModalRelato } from "../components/ModalRelato";   // ⬅ IMPORT DO MODAL
+import { ModalRelato } from "../components/ModalRelato/ModalRelato";   // ⬅ IMPORT DO MODAL
 
 const getIconByTitle = (title) => {
     const lowerTitle = title.toLowerCase();
@@ -100,16 +100,18 @@ export default function Relatos() {
                 )}
 
                 {!loading && !error && relatos.map((relato) => (
-                    <div className="card" key={relato.id}>
-                        <div className="card-icon">{getIconByTitle(relato.title || relato.description)}</div>
+                    <div className="pre-card">
+                        <div className="card" key={relato.id}>
+                            <div className="card-icon">{getIconByTitle(relato.title || relato.description)}</div>
 
-                        <div className="card-info">
-                            <h4>{relato.title || 'Sem Título'}</h4>
-                            <p>{relato.description || `Lat: ${relato.position.lat}, Lng: ${relato.position.lng}`}</p>
-                            <p className="text-gray-500 text-xs mt-1">
-                                Endereço: <b>{relato.address || 'Buscando endereço...'}</b>
-                            </p>
-                        </div>
+                            <div className="card-info">
+                                <h4>{relato.title || 'Sem Título'}</h4>
+                                <p>{relato.description || `Lat: ${relato.position.lat}, Lng: ${relato.position.lng}`}</p>
+                                <p className="text-gray-500 text-xs mt-1">
+                                    Endereço: <b>{relato.address || 'Buscando endereço...'}</b>
+                                </p>
+                            </div>
+                    </div>
 
                         {/* BOTÃO QUE ABRE O MODAL */}
                         <button 
