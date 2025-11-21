@@ -66,6 +66,7 @@ export default function Relatos() {
         if (token) fetchRelatos();
     }, [token]);
 
+    
     return (
         <div className="relatos-container bg-[#f6f6f6] min-h-screen flex flex-col font-sans">
             
