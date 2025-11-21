@@ -8,7 +8,7 @@ import { Search } from "../components/Search";
 
 import { CadastroProblemaCard } from "../components/CadastroProblemaCard";
 
-import { ModalRelato } from "../components/ModalRelato/ModalRelato";
+import { ModalRelato } from "../components/ModalRelato/modalRelato.jsx";
 
 import { GoogleMap, Marker, useJsApiLoader } from "@react-google-maps/api";
 
@@ -16,9 +16,9 @@ import { getPoints, postPoint } from '../services/mapService';
 
 import { useAuth } from "../contexts/AuthContext";
 
- 
- 
- 
+
+
+
 
 const containerStyle = {
 
@@ -39,7 +39,7 @@ const center = {
 
 };
 
-  
+
 
 export const Map = () => {
 
@@ -53,19 +53,19 @@ export const Map = () => {
 
   const [mapInstance, setMapInstance] = useState(null)
 
-  
+
 
   // ESTADOS DE CADASTRO
 
-  const [newPointData, setNewPointData] = useState(null); 
+  const [newPointData, setNewPointData] = useState(null);
 
-  const [addressData, setAddressData] = useState(null); 
-  
-  const [draftMarker, setDraftMarker] = useState(null); 
-  
-  const [selectedRelato, setSelectedRelato] = useState(null); 
+  const [addressData, setAddressData] = useState(null);
 
-  
+  const [draftMarker, setDraftMarker] = useState(null);
+
+  const [selectedRelato, setSelectedRelato] = useState(null);
+
+
 
 
   const { isLoaded } = useJsApiLoader({
@@ -88,13 +88,13 @@ export const Map = () => {
 
     }
 
-  
+
 
     const geocoder = new window.google.maps.Geocoder();
 
     const latLng = { lat: parseFloat(lat), lng: parseFloat(lng) };
 
-  
+
 
     return new Promise((resolve) => {
 
@@ -167,7 +167,7 @@ export const Map = () => {
 
   }, [isLoaded]);
 
-  
+
 
 
   useEffect(() => {
@@ -182,7 +182,7 @@ export const Map = () => {
 
           setCurrentPosition(userLocation);
 
-          setMapCenter(userLocation); 
+          setMapCenter(userLocation);
         },
 
         (error) => {
@@ -199,9 +199,9 @@ export const Map = () => {
 
     }
 
-  }, []); 
+  }, []);
 
-  
+
 
   useEffect(() => {
 
@@ -225,7 +225,7 @@ export const Map = () => {
 
   }, [token]);
 
-  
+
 
   const handleSearchSubmit = useCallback((searchTerm) => {
 
@@ -233,7 +233,7 @@ export const Map = () => {
 
   }, [geocodeAddress]);
 
-  
+
 
 
   const handleMapClick = async (event) => {
@@ -243,7 +243,7 @@ export const Map = () => {
     const lng = event.latLng.lng();
 
     console.log("Mapa clicado! Evento recebido.");
-  
+
     const pointCoords = { latitude: lat, longitude: lng };
 
     setNewPointData(pointCoords);
@@ -251,7 +251,7 @@ export const Map = () => {
     setDraftMarker({ lat, lng });
 
     setAddressData({ city: 'Carregando...', fullAddress: 'Aguarde...' });
-  
+
     const address = await reverseGeocode(lat, lng);
 
     setAddressData(address);
@@ -259,7 +259,7 @@ export const Map = () => {
     setSelectedRelato(null);
   };
 
-  
+
 
   const handleCenterClick = () => {
 
@@ -275,13 +275,13 @@ export const Map = () => {
 
     const mockEvent = {
 
-        latLng: {
+      latLng: {
 
-            lat: () => mapCenter.lat,
+        lat: () => mapCenter.lat,
 
-            lng: () => mapCenter.lng,
+        lng: () => mapCenter.lng,
 
-        }
+      }
 
     };
 
@@ -289,7 +289,7 @@ export const Map = () => {
 
   };
 
-  
+
 
 
 
@@ -297,7 +297,7 @@ export const Map = () => {
 
     if (!newPointData) return;
 
-  
+
 
     const newPoint = {
 
@@ -307,14 +307,14 @@ export const Map = () => {
 
       title: title,
 
-      description: description, 
+      description: description,
       category: category,
 
       // ...
 
     };
 
-  
+
 
     try {
 
@@ -326,7 +326,7 @@ export const Map = () => {
 
         title: savedPoint.title || "Novo Ponto",
 
-        description: savedPoint.description, 
+        description: savedPoint.description,
 
         position: {
 
@@ -342,11 +342,11 @@ export const Map = () => {
 
       setMarkers((prev) => [...prev, savedMarker]);
 
-      
-      setNewPointData(null); 
 
-      setAddressData(null); 
-      setDraftMarker(null); 
+      setNewPointData(null);
+
+      setAddressData(null);
+      setDraftMarker(null);
 
     } catch (error) {
 
@@ -356,46 +356,46 @@ export const Map = () => {
 
   };
 
-  
+
 
   const handleCloseCard = () => {
 
     setNewPointData(null);
 
-    setAddressData(null); 
-    setDraftMarker(null); 
+    setAddressData(null);
+    setDraftMarker(null);
 
   };
 
-  
- 
+
+
 
   const handleMarkerClick = async (markerData) => {
- 
-    setNewPointData(null); 
-    setAddressData(null); 
-    setDraftMarker(null); 
 
- 
+    setNewPointData(null);
+    setAddressData(null);
+    setDraftMarker(null);
+
+
     setSelectedRelato({
-        id: markerData.id,
-        title: markerData.title,
-        description: markerData.description || 'Sem descrição', 
-        address: 'Carregando endereço...', 
-        position: markerData.position,
-        category: markerData.category,
+      id: markerData.id,
+      title: markerData.title,
+      description: markerData.description || 'Sem descrição',
+      address: 'Carregando endereço...',
+      position: markerData.position,
+      category: markerData.category,
     });
-    
-   
+
+
     const { lat, lng } = markerData.position;
     const addressResult = await reverseGeocode(lat, lng);
 
 
     setSelectedRelato(prevRelato => ({
-        ...prevRelato,
-        address: addressResult.fullAddress 
+      ...prevRelato,
+      address: addressResult.fullAddress
     }));
-};
+  };
 
   const handleCloseRelatoModal = () => {
     setSelectedRelato(null);
@@ -413,11 +413,11 @@ export const Map = () => {
 
       <div style={{
 
-            width: "100%",
+        width: "100%",
 
-            height: "100%",
+        height: "100%",
 
-        }}>
+      }}>
 
         {isLoaded ? (
 
@@ -433,13 +433,13 @@ export const Map = () => {
 
           >
 
-       
+
             {draftMarker && (
-                <Marker 
-                    position={draftMarker} 
-                    title="Novo Relato (Rascunho)"
-                   
-                />
+              <Marker
+                position={draftMarker}
+                title="Novo Relato (Rascunho)"
+
+              />
             )}
 
 
@@ -454,7 +454,7 @@ export const Map = () => {
 
                 title={marker.title}
 
-                onClick={() => handleMarkerClick(marker)} 
+                onClick={() => handleMarkerClick(marker)}
               />
 
             ))}
@@ -469,7 +469,7 @@ export const Map = () => {
 
       </div>
 
-      <Menu handleCenterClick={handleCenterClick}/>
+      <Menu handleCenterClick={handleCenterClick} />
 
 
 
