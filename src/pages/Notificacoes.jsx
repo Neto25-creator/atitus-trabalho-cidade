@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { IoIosArrowBack } from "react-icons/io";
 import { FiMoreVertical } from "react-icons/fi";
+import { IoIosWarning } from "react-icons/io";
 import { MdWaterDrop, MdWarning } from "react-icons/md";
 import { Menu } from "../components/Menu";
 import "./Notificacoes.css";
@@ -58,7 +59,7 @@ return (
 </div>
 </div>
 
-
+<b className="ilustrativa">PÁGINA ILUSTRATIVA<IoIosWarning size={30}/></b>
 <Menu />
 </div>
 );

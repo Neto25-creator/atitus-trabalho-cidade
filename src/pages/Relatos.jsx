@@ -71,6 +71,7 @@ export default function Relatos() {
         }
     }, [token]);
 
+    
     return (
         <div className="relatos-container bg-[#f6f6f6] min-h-screen flex flex-col font-sans">
             {/* NAV */}
@@ -80,16 +81,6 @@ export default function Relatos() {
                         <IoIosArrowBack size={22} />
                     </Link>
                     <span>Relatos Cadastrados</span>
-                </div>
-
-
-                {/* Tabs */}
-                <div className="flex justify-around mt-4 text-[14px] text-gray-600">
-                    <button className="tab-active">Tudo</button>
-                    <button className="tab-default">Segurança</button>
-                    <button className="tab-default">Infraestrutura</button>
-                    <button className="tab-default">Saneamento</button>
-                     <button className="tab-default">Outros</button>
                 </div>
             </nav>
 
@@ -116,6 +107,7 @@ export default function Relatos() {
                         <div className="card-info">
                             <h4>{relato.title || 'Sem Título'}</h4>
                             <p>{relato.description || `Lat: ${relato.position.lat}, Lng: ${relato.position.lng}`}</p>
+                            <p></p>
                             <p className="text-gray-500 text-xs mt-1">Endereço: <b> {relato.address || 'Buscando endereço...'}</b></p>
                         </div>
                         <div className="card-details"><FiMoreVertical size={20} /></div>
