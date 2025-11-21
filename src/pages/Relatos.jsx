@@ -6,7 +6,7 @@ import "./Relatos.css";
 import { useAuth } from "../contexts/AuthContext";
 import { getPoints, getReverseGeocodeAddress } from "../services/mapService";
 import { useState, useEffect } from 'react';
-import { ModalRelato } from "../components/ModalRelato/ModalRelato";
+import { ModalRelato } from "../components/ModalRelato/modalRelato.jsx";
 
 const getIconByTitle = (title) => {
     const lowerTitle = title.toLowerCase();
