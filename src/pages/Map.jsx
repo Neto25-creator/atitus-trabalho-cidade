@@ -30,9 +30,6 @@ const containerStyle = {
 
 };
 
-  
-
-// Posição padrão (São Paulo)
 
 const center = {
 
@@ -50,8 +47,6 @@ export const Map = () => {
 
   const [markers, setMarkers] = useState([]);
 
-  // currentPosition e mapCenter iniciam em São Paulo, mas serão atualizados pelo useEffect
-
   const [currentPosition, setCurrentPosition] = useState(center);
 
   const [mapCenter, setMapCenter] = useState(center);
@@ -62,19 +57,16 @@ export const Map = () => {
 
   // ESTADOS DE CADASTRO
 
-  const [newPointData, setNewPointData] = useState(null); // {latitude: X, longitude: Y}
+  const [newPointData, setNewPointData] = useState(null); 
 
-  const [addressData, setAddressData] = useState(null); // { city: '...', fullAddress: '...' }
+  const [addressData, setAddressData] = useState(null); 
   
-  // NOVO ESTADO: Marcador temporário para pré-visualização no mapa
-  const [draftMarker, setDraftMarker] = useState(null); // { lat: X, lng: Y }
+  const [draftMarker, setDraftMarker] = useState(null); 
   
-  // ESTADO DO MODAL DE VISUALIZAÇÃO
   const [selectedRelato, setSelectedRelato] = useState(null); 
 
   
 
-  // Carregamento da API do Google Maps e Geocoding
 
   const { isLoaded } = useJsApiLoader({
 
@@ -84,17 +76,7 @@ export const Map = () => {
 
   });
 
-  
 
-// ----------------------------------------------------------------------
-
-// FUNÇÕES DE GEOCÓDIGO
-
-// ----------------------------------------------------------------------
-
-  
-
-  // Função Reverse Geocoding: Converte Lat/Lng em endereço legível
 
   const reverseGeocode = useCallback(async (lat, lng) => {
 
@@ -122,8 +104,6 @@ export const Map = () => {
 
           const fullAddress = results[0].formatted_address;
 
-          // Tenta encontrar a cidade nos components de endereço
-
           const cityComponent = results[0].address_components.find(
 
             comp => comp.types.includes('locality') || comp.types.includes('administrative_area_level_2')
@@ -148,9 +128,6 @@ export const Map = () => {
 
   }, [isLoaded]);
 
-  
-
-  // Função Geocoding: Converte endereço de texto em Lat/Lng
 
   const geocodeAddress = useCallback((address) => {
 
@@ -191,17 +168,7 @@ export const Map = () => {
   }, [isLoaded]);
 
   
-  
 
-// ----------------------------------------------------------------------
-
-// FUNÇÕES DE EVENTOS E EFEITOS
-
-// ----------------------------------------------------------------------
-
-  
-
-  // Efeito para buscar a Posição Atual do Usuário e centralizar o mapa
 
   useEffect(() => {
 
@@ -215,15 +182,12 @@ export const Map = () => {
 
           setCurrentPosition(userLocation);
 
-          setMapCenter(userLocation); // ESTA LINHA CENTRALIZA O MAPA NO USUÁRIO
-
+          setMapCenter(userLocation); 
         },
 
         (error) => {
 
           console.error("Erro ao obter a localização:", error);
-
-          // Se der erro, mantém a posição padrão (São Paulo)
 
         }
 
@@ -235,11 +199,9 @@ export const Map = () => {
 
     }
 
-  }, []); // Roda apenas na montagem
+  }, []); 
 
   
-
-  // Efeito para buscar os Marcadores Salvos (mantido)
 
   useEffect(() => {
 
@@ -265,8 +227,6 @@ export const Map = () => {
 
   
 
-  // Função de callback passada para o componente Search (mantida)
-
   const handleSearchSubmit = useCallback((searchTerm) => {
 
     geocodeAddress(searchTerm);
@@ -274,17 +234,7 @@ export const Map = () => {
   }, [geocodeAddress]);
 
   
-  
 
-// ----------------------------------------------------------------------
-
-// FUNÇÃO DE CLIQUE DO MAPA (REVISADA)
-
-// ----------------------------------------------------------------------
-
-  
-
-  // FUNÇÃO REVISADA: Captura o clique, busca o endereço, e abre o formulário
 
   const handleMapClick = async (event) => {
 
@@ -296,26 +246,16 @@ export const Map = () => {
   
     const pointCoords = { latitude: lat, longitude: lng };
 
-  
-
-    // 1. Define a posição inicial no estado
     setNewPointData(pointCoords);
 
-    // 2. DEFINE O MARCADOR DE RASCUNHO PARA APARECER NO MAPA IMEDIATAMENTE!
     setDraftMarker({ lat, lng });
 
-    // 3. Define o endereço como 'Carregando' para feedback imediato
     setAddressData({ city: 'Carregando...', fullAddress: 'Aguarde...' });
-
   
-
-    // 4. Executa o Reverse Geocoding
     const address = await reverseGeocode(lat, lng);
 
-    // 5. Salva os dados de endereço
     setAddressData(address);
 
-    // Garante que o modal de visualização esteja fechado
     setSelectedRelato(null);
   };
 
@@ -331,7 +271,7 @@ export const Map = () => {
 
     }
 
-    // Simula o evento de clique, usando o centro atual (mapCenter)
+
 
     const mockEvent = {
 
@@ -351,7 +291,7 @@ export const Map = () => {
 
   
 
-  // NOVA FUNÇÃO: Recebe os dados do formulário e faz o POST 
+
 
   const handleCadastroSubmit = async (title, description, category, fileName) => {
 
@@ -403,10 +343,10 @@ export const Map = () => {
       setMarkers((prev) => [...prev, savedMarker]);
 
       
-      setNewPointData(null); // Fecha o formulário ao concluir
+      setNewPointData(null); 
 
-      setAddressData(null); // Limpa os dados de endereço
-      setDraftMarker(null); // LIMPA O MARCADOR DE RASCUNHO
+      setAddressData(null); 
+      setDraftMarker(null); 
 
     } catch (error) {
 
@@ -418,58 +358,50 @@ export const Map = () => {
 
   
 
-  // NOVA FUNÇÃO: Fecha o formulário sem salvar
-
   const handleCloseCard = () => {
 
     setNewPointData(null);
 
-    setAddressData(null); // Limpa os dados de endereço
-    setDraftMarker(null); // LIMPA O MARCADOR DE RASCUNHO
+    setAddressData(null); 
+    setDraftMarker(null); 
 
   };
 
   
-  // FUNÇÃO DE CLIQUE NO MARCADOR (Abre o ModalRelato)
+ 
 
   const handleMarkerClick = async (markerData) => {
-    // 1. Fecha o modal de cadastro caso esteja aberto
+ 
     setNewPointData(null); 
     setAddressData(null); 
-    setDraftMarker(null); // Garante que o rascunho desapareça se clicarmos em outro marcador
+    setDraftMarker(null); 
 
-    // 2. Define um estado de carregamento inicial para o endereço
+ 
     setSelectedRelato({
         id: markerData.id,
         title: markerData.title,
         description: markerData.description || 'Sem descrição', 
-        address: 'Carregando endereço...', // Placeholder enquanto busca
+        address: 'Carregando endereço...', 
         position: markerData.position,
         category: markerData.category,
     });
     
-    // 3. Executa o Reverse Geocoding (usando a função que você já tem)
+   
     const { lat, lng } = markerData.position;
     const addressResult = await reverseGeocode(lat, lng);
 
-    // 4. Atualiza o estado com o endereço real, garantindo que o modal apareça
+
     setSelectedRelato(prevRelato => ({
         ...prevRelato,
-        address: addressResult.fullAddress // Usa o endereço completo da API
+        address: addressResult.fullAddress 
     }));
 };
 
-  // FUNÇÃO PARA FECHAR O MODAL DE RELATO 
   const handleCloseRelatoModal = () => {
     setSelectedRelato(null);
   };
 
 
-// ----------------------------------------------------------------------
-
-// RENDERIZAÇÃO
-
-// ----------------------------------------------------------------------
 
   return (
 
@@ -501,21 +433,16 @@ export const Map = () => {
 
           >
 
-            {/* Marcador da Posição Atual */}
-
-            
-            {/* NOVO: Marcador de Rascunho para Cadastro */}
+       
             {draftMarker && (
                 <Marker 
                     position={draftMarker} 
                     title="Novo Relato (Rascunho)"
-                    // Você pode adicionar um ícone personalizado aqui para o rascunho
+                   
                 />
             )}
 
-  
 
-            {/* Marcadores Salvos */}
 
             {markers.map(marker => (
 
@@ -544,9 +471,7 @@ export const Map = () => {
 
       <Menu handleCenterClick={handleCenterClick}/>
 
-  
 
-      {/* RENDERIZA QUANDO newPointData ESTIVER PRESENTE (Card de Cadastro) */}
 
       {newPointData && (
 
@@ -556,11 +481,10 @@ export const Map = () => {
 
           onClose={handleCloseCard}
 
-          // PASSANDO OS DADOS DE COORDENADA (usa a estrutura de objeto que o Card espera)
+
 
           position={{ lat: newPointData.latitude, lng: newPointData.longitude }}
 
-          // PASSANDO OS DADOS DE ENDEREÇO (addressData pode ser 'Carregando' ou o endereço final)
 
           addressData={addressData}
 
@@ -568,7 +492,6 @@ export const Map = () => {
 
       )}
 
-      {/* RENDERIZA QUANDO selectedRelato ESTIVER PRESENTE (Modal de Visualização) */}
       {selectedRelato && (
         <ModalRelato
           relato={selectedRelato}

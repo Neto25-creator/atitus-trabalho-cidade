@@ -1,21 +1,21 @@
-/* --- CONTAINER PRINCIPAL COMO OVERLAY --- */
+
 .profile-overlay {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 998; /* fica abaixo do Menu (999) mas acima do MAP */
+    z-index: 998; 
     
-    backdrop-filter: blur(8px); /* desfoca o /map por baixo */
-    background: rgba(255, 255, 255, 0.15); /* leve transparência */
+    backdrop-filter: blur(8px); 
+    background: rgba(255, 255, 255, 0.15); 
     
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-/* --- CARD PRINCIPAL DO PERFIL --- */
+
 .profile-card {
     width: 85%;
     max-width: 500px;
@@ -32,7 +32,7 @@
     align-items: center;
 }
 
-/* FOTO */
+
 .profile-photo {
     width: 150px;
     height: 150px;
@@ -48,7 +48,7 @@
     object-fit: cover;
 }
 
-/* INFO */
+
 .profile-info {
     width: 100%;
     display: flex;
@@ -72,7 +72,7 @@
     box-shadow: 0 0px 10px rgba(0,0,0,0.15);
 }
 
-/* MOBILE */
+
 @media (max-width: 900px) {
     .profile-card {
         width: 90%;
@@ -84,14 +84,14 @@
     }
 }
 
-/* Overrides for ProfileCard inside form-box to remove moldura and center icon */
+
 .profile-form-box .profile-photo--large {
     width: 120px;
     height: 120px;
     border-radius: 100%;
     overflow: hidden;
     margin-bottom: 8px;
-    box-shadow: none; /* remove moldura/ombra */
+    box-shadow: none; 
     background: transparent;
     display: flex;
     align-items: center;
@@ -106,6 +106,4 @@
 }
 
 .profile-form-box .profile-icon { display:flex; align-items:center; justify-content:center; width:100%; height:100%; }
-
-/* Ensure the form-box centers content */
 .profile-form-box { align-items: center; text-align: center; }

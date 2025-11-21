@@ -10,7 +10,6 @@ import "./Notificacoes.css";
 export default function Notificacoes() {
     return (
         <div className="notificacoes-container bg-[#f6f6f6] min-h-screen flex flex-col font-sans">
-            {/* NAV */}
             <nav className="bg-white shadow-sm p-4 rounded-b-2xl">
                 <div className="flex items-center gap-3 text-[15px] font-semibold">
                     <Link to="/map" className="p-1 rounded-full hover:bg-gray-100">
@@ -20,7 +19,6 @@ export default function Notificacoes() {
                 </div>
 
 
-                {/* Tabs */}
                 <div className="flex justify-around mt-4 text-[14px] text-gray-600">
                     <button className="tab-active">Tudo</button>
                     <button className="tab-default">Resolvidos</button>
@@ -29,15 +27,14 @@ export default function Notificacoes() {
             </nav>
 
 
-            {/* Contagem */}
+
             <div className="px-4 mt-4 text-sm text-gray-500">
                 <span className="flex items-center gap-2">🔔 Você tem <b>X notificações</b></span>
             </div>
 
 
-            {/* Lista */}
+
             <div className="p-4 flex flex-col gap-4 pb-24">
-                {/* CARD 1 */}
                 <div className="card">
                     <div className="card-icon"><MdWaterDrop size={28} /></div>
                     <div className="card-info">
@@ -48,7 +45,6 @@ export default function Notificacoes() {
                 </div>
 
 
-                {/* CARD 2 */}
                 <div className="card">
                     <div className="card-icon"><MdWarning size={28} /></div>
                     <div className="card-info">
