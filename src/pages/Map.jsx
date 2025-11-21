@@ -16,9 +16,9 @@ import { getPoints, postPoint } from '../services/mapService';
 
 import { useAuth } from "../contexts/AuthContext";
 
- 
- 
- 
+ 
+ 
+ 
 
 const containerStyle = {
 
@@ -65,10 +65,12 @@ export const Map = () => {
   const [newPointData, setNewPointData] = useState(null); // {latitude: X, longitude: Y}
 
   const [addressData, setAddressData] = useState(null); // { city: '...', fullAddress: '...' }
-
-  
-  // ESTADO DO MODAL DE VISUALIZAÇÃO
-  const [selectedRelato, setSelectedRelato] = useState(null); // <-- NOVO
+  
+  // NOVO ESTADO: Marcador temporário para pré-visualização no mapa
+  const [draftMarker, setDraftMarker] = useState(null); // { lat: X, lng: Y }
+  
+  // ESTADO DO MODAL DE VISUALIZAÇÃO
+  const [selectedRelato, setSelectedRelato] = useState(null); 
 
   
 
@@ -291,35 +293,30 @@ export const Map = () => {
     const lng = event.latLng.lng();
 
     console.log("Mapa clicado! Evento recebido.");
+  
+    const pointCoords = { latitude: lat, longitude: lng };
 
   
 
     // 1. Define a posição inicial no estado
+    setNewPointData(pointCoords);
 
-    setNewPointData({
+    // 2. DEFINE O MARCADOR DE RASCUNHO PARA APARECER NO MAPA IMEDIATAMENTE!
+    setDraftMarker({ lat, lng });
 
-      latitude: lat,
-
-      longitude: lng,
-
-    });
-
-    // 2. Define o endereço como 'Carregando' para feedback imediato
-
+    // 3. Define o endereço como 'Carregando' para feedback imediato
     setAddressData({ city: 'Carregando...', fullAddress: 'Aguarde...' });
 
   
 
-    // 3. Executa o Reverse Geocoding
-
+    // 4. Executa o Reverse Geocoding
     const address = await reverseGeocode(lat, lng);
 
-    // 4. Salva os dados de endereço
-
+    // 5. Salva os dados de endereço
     setAddressData(address);
 
-    // Garante que o modal de visualização esteja fechado
-    setSelectedRelato(null);
+    // Garante que o modal de visualização esteja fechado
+    setSelectedRelato(null);
   };
 
   
@@ -335,10 +332,6 @@ export const Map = () => {
     }
 
     // Simula o evento de clique, usando o centro atual (mapCenter)
-
-    // O async/await é omitido aqui, pois chamaremos a função de clique
-
-    // Se você não usou a variável mapInstance, chame o handleMapClick diretamente:
 
     const mockEvent = {
 
@@ -358,7 +351,7 @@ export const Map = () => {
 
   
 
-  // NOVA FUNÇÃO: Recebe os dados do formulário e faz o POST (mantida)
+  // NOVA FUNÇÃO: Recebe os dados do formulário e faz o POST 
 
   const handleCadastroSubmit = async (title, description, category, fileName) => {
 
@@ -374,7 +367,7 @@ export const Map = () => {
 
       title: title,
 
-      description: description, // <-- Adicionei description para o markerData
+      description: description, 
       category: category,
 
       // ...
@@ -393,7 +386,7 @@ export const Map = () => {
 
         title: savedPoint.title || "Novo Ponto",
 
-        description: savedPoint.description, // <-- Adicionado
+        description: savedPoint.description, 
 
         position: {
 
@@ -409,9 +402,11 @@ export const Map = () => {
 
       setMarkers((prev) => [...prev, savedMarker]);
 
+      
       setNewPointData(null); // Fecha o formulário ao concluir
 
       setAddressData(null); // Limpa os dados de endereço
+      setDraftMarker(null); // LIMPA O MARCADOR DE RASCUNHO
 
     } catch (error) {
 
@@ -430,42 +425,44 @@ export const Map = () => {
     setNewPointData(null);
 
     setAddressData(null); // Limpa os dados de endereço
+    setDraftMarker(null); // LIMPA O MARCADOR DE RASCUNHO
 
   };
 
-  
-  // FUNÇÃO DE CLIQUE NO MARCADOR (Abre o ModalRelato) <-- NOVO
+  
+  // FUNÇÃO DE CLIQUE NO MARCADOR (Abre o ModalRelato)
 
-  const handleMarkerClick = async (markerData) => {
-    // 1. Fecha o modal de cadastro caso esteja aberto
-    setNewPointData(null); 
-    setAddressData(null); 
+  const handleMarkerClick = async (markerData) => {
+    // 1. Fecha o modal de cadastro caso esteja aberto
+    setNewPointData(null); 
+    setAddressData(null); 
+    setDraftMarker(null); // Garante que o rascunho desapareça se clicarmos em outro marcador
 
-    // 2. Define um estado de carregamento inicial para o endereço
-    setSelectedRelato({
-        id: markerData.id,
-        title: markerData.title,
-        description: markerData.description || 'Sem descrição', 
-        address: 'Carregando endereço...', // Placeholder enquanto busca
-        position: markerData.position,
-        category: markerData.category,
-    });
-    
-    // 3. Executa o Reverse Geocoding (usando a função que você já tem)
-    const { lat, lng } = markerData.position;
-    const addressResult = await reverseGeocode(lat, lng);
+    // 2. Define um estado de carregamento inicial para o endereço
+    setSelectedRelato({
+        id: markerData.id,
+        title: markerData.title,
+        description: markerData.description || 'Sem descrição', 
+        address: 'Carregando endereço...', // Placeholder enquanto busca
+        position: markerData.position,
+        category: markerData.category,
+    });
+    
+    // 3. Executa o Reverse Geocoding (usando a função que você já tem)
+    const { lat, lng } = markerData.position;
+    const addressResult = await reverseGeocode(lat, lng);
 
-    // 4. Atualiza o estado com o endereço real, garantindo que o modal apareça
-    setSelectedRelato(prevRelato => ({
-        ...prevRelato,
-        address: addressResult.fullAddress // Usa o endereço completo da API
-    }));
+    // 4. Atualiza o estado com o endereço real, garantindo que o modal apareça
+    setSelectedRelato(prevRelato => ({
+        ...prevRelato,
+        address: addressResult.fullAddress // Usa o endereço completo da API
+    }));
 };
 
-  // FUNÇÃO PARA FECHAR O MODAL DE RELATO <-- NOVO
-  const handleCloseRelatoModal = () => {
-    setSelectedRelato(null);
-  };
+  // FUNÇÃO PARA FECHAR O MODAL DE RELATO 
+  const handleCloseRelatoModal = () => {
+    setSelectedRelato(null);
+  };
 
 
 // ----------------------------------------------------------------------
@@ -507,6 +504,15 @@ export const Map = () => {
             {/* Marcador da Posição Atual */}
 
             <Marker position={currentPosition} title="Sua Posição Atual" />
+            
+            {/* NOVO: Marcador de Rascunho para Cadastro */}
+            {draftMarker && (
+                <Marker 
+                    position={draftMarker} 
+                    title="Novo Relato (Rascunho)"
+                    // Você pode adicionar um ícone personalizado aqui para o rascunho
+                />
+            )}
 
   
 
@@ -522,7 +528,7 @@ export const Map = () => {
 
                 title={marker.title}
 
-                onClick={() => handleMarkerClick(marker)} // <-- ADICIONADO: Ao clicar no marcador, abre o ModalRelato
+                onClick={() => handleMarkerClick(marker)} 
               />
 
             ))}
@@ -563,13 +569,13 @@ export const Map = () => {
 
       )}
 
-      {/* RENDERIZA QUANDO selectedRelato ESTIVER PRESENTE (Modal de Visualização) */}
-      {selectedRelato && (
-        <ModalRelato
-          relato={selectedRelato}
-          onClose={handleCloseRelatoModal}
-        />
-      )}
+      {/* RENDERIZA QUANDO selectedRelato ESTIVER PRESENTE (Modal de Visualização) */}
+      {selectedRelato && (
+        <ModalRelato
+          relato={selectedRelato}
+          onClose={handleCloseRelatoModal}
+        />
+      )}
 
     </>
 
