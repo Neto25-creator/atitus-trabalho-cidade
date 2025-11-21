@@ -76,7 +76,7 @@ export default function Relatos() {
                     <Link to="/map" className="p-1 rounded-full hover:bg-gray-100">
                         <IoIosArrowBack size={22} />
                     </Link>
-                    <span>Relatos Cadastrados</span>
+                    <span>Seus relatos Cadastrados</span>
                 </div>
 
                 <div className="flex justify-around mt-4 text-[14px] text-gray-600">

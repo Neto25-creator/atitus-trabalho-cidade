@@ -66,11 +66,6 @@ export function Login() {
                   value={senha}
                   onChange={(e) => setSenha(e.target.value)}
                 />
-                <div className="form-links">
-                  <Link to="/" className="forgot-link">
-                    Esqueceu a senha?
-                  </Link>
-                </div>
               </div>
 
               {erro && <p className="error-text">{erro}</p>}
